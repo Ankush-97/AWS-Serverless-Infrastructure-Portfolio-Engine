@@ -134,7 +134,7 @@
             <!-- Floating Top Tag -->
             <div style="margin-bottom: 25px; display: inline-block; animation: heroWrench 2.5s infinite ease-in-out;">
                 <span class="glow-tag-blink" style="background: rgba(168, 85, 247, 0.15); color: #e9d5ff; padding: 8px 22px; border-radius: 20px; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; border: 1px solid rgba(168, 85, 247, 0.4); text-transform: uppercase; display: inline-block;">
-                    BUILDING AUTOMATED INFRASTRUCTURE 🚀
+                   Cloud & DevOps Engineer 🚀
                 </span>
             </div>
 
@@ -145,8 +145,8 @@
 
             <!-- Subtitle -->
             <p style="font-size: 21px; color: #cbd5e1; font-weight: 500; letter-spacing: 0.5px; margin-bottom: 45px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); max-width: 850px; margin-left: auto; margin-right: auto; line-height: 1.5;">
-                A Passionate <strong style="color: #a855f7; font-weight: 700;">DevOps</strong> & <strong style="color: #a855f7; font-weight: 700;">Cloud Operations</strong> Specialist
-            </p>
+               Building secure,<strong style="color: #a855f7; font-weight: 700;"> Cost-optimized</strong> and<strong style="color: #a855f7; font-weight: 700;"> Highly available</strong> AWS infrastructure through automated CI/CD pipelines
+	    </p>
 
             <!-- Resume Download Link -->
             <a href="assets/download/Ankush-Pandey-Resume.pdf" download="Ankush-Pandey-Resume.pdf" style="background: #a855f7; color: #fff; font-size: 15px; font-weight: 700; padding: 14px 38px; border-radius: 30px; letter-spacing: 1px; text-transform: uppercase; text-decoration: none !important; box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4); transition: all 0.3s ease; display: inline-block;">
@@ -871,6 +871,28 @@ window.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                     </div>
+        <!-- PROJECT 4: AWS Serverless Infrastructure Portfolio Engine -->
+        <div class="col-md-4" style="margin-bottom: 30px; display: flex;">
+            <div class="devops-project-card">
+                <div class="project-header">
+                    <span class="project-badge glow-purple-badge">Serverless / Cloud</span>
+                    <a href="https://github.com/Ankush-97/AWS-Serverless-Infrastructure-Portfolio-Engine.git" target="_blank" class="github-btn">View Code 🚀</a>
+                </div>
+                
+                <h3 class="project-title">AWS Serverless Infrastructure Portfolio Engine</h3>
+                <p class="project-subtitle">Engineered a highly secure, automated personal portfolio infrastructure on AWS using modern serverless computing models.</p>
+                
+                <ul class="project-bullet-points">
+                    <li>Configured Authoritative DNS registry routing via AWS Route 53 and established multi-layered inbound network security controls.</li>
+                    <li>Designed a decoupled backend API architecture using Amazon API Gateway and asynchronous AWS Lambda functions (Python 3.12).</li>
+                    <li>Integrated automated SSL/TLS encryption via Certbot and a downstream secure mail delivery pipeline using Amazon SES.</li>
+                </ul>
+                
+                <div class="project-stack">
+                    <span>AWS Lambda</span><span>Route 53</span><span>API Gateway</span><span>AWS SES</span><span>Python</span>
+                </div>
+            </div>
+        </div>
 
                 </div>
             </div>
@@ -1300,6 +1322,12 @@ window.addEventListener('DOMContentLoaded', () => {
             subject: document.getElementById('subject') ? document.getElementById('subject').value : '',
             message: document.getElementById('comment') ? document.getElementById('comment').value : ''
         };
+        // 🌟 EMAIL VALIDATION CHECK (Bina email ke block karne ke liye)
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!formData.email || !emailRegex.test(formData.email)) {
+            showToast('error', '❌ Please enter a valid email address.');
+            return; // Yeh request ko aage badhne se rok dega
+        }
 
         // Inputs khali hone par blank email trigger hone se rokna
         if(!formData.name && !formData.email && !formData.message) {
