@@ -416,23 +416,23 @@ window.addEventListener('DOMContentLoaded', () => {
 							
 		<!--education end -->
 
-		<!-- START OF INFRASTRUCTURE WORKFLOW SECTION -->
+		<!-- START OF LIVE PORTFOLIO DYNAMIC WORKFLOW SECTION -->
 <section id="workflow-section" class="workflow-section">
     <style>
         .workflow-section {
             padding: 80px 0;
             text-align: center;
-            background: #ffffff;
+            background: #fafafa;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
         .wf-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
         .wf-title {
-            font-size: 2.5rem;
-            color: #1a1a1a;
+            font-size: 2.4rem;
+            color: #111111;
             margin-bottom: 10px;
             letter-spacing: 2px;
             font-weight: 800;
@@ -444,128 +444,136 @@ window.addEventListener('DOMContentLoaded', () => {
             margin-bottom: 50px;
             font-weight: 400;
         }
-        .workflow-grid {
+        .flow-wrapper {
             display: flex;
-            justify-content: center;
-            gap: 35px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+            position: relative;
         }
-        .workflow-card {
+        .flow-node {
             background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 35px 25px;
-            width: 340px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px 25px;
+            width: 100%;
+            max-width: 750px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             position: relative;
             transition: all 0.3s ease;
             box-sizing: border-box;
         }
-        .workflow-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.1);
+        .flow-node:hover {
+            transform: scale(1.02);
             border-color: #8a2be2;
+            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.08);
         }
-        .workflow-badge {
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #8a2be2; /* High-tech Purple Accent */
+        .node-step {
+            display: inline-block;
+            background: #8a2be2;
             color: #ffffff;
             font-size: 0.75rem;
             font-weight: 700;
-            padding: 6px 16px;
-            border-radius: 20px;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(138, 43, 226, 0.2);
-            white-space: nowrap;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
         }
-        .workflow-card h3 {
-            font-size: 1.4rem;
-            margin: 15px 0 12px 0;
-            color: #111111;
+        .node-title {
+            font-size: 1.25rem;
             font-weight: 700;
+            color: #1a202c;
+            margin: 0 0 5px 0;
         }
-        .workflow-card p {
+        .node-desc {
             font-size: 0.95rem;
             color: #4a5568;
-            line-height: 1.5;
-            margin-bottom: 25px;
-            height: 45px; /* Ensures alignments are perfectly synced */
+            margin: 0;
+            line-height: 1.4;
         }
-        .flow-arrow {
-            color: #a855f7;
-            font-size: 1.4rem;
-            margin: 10px 0;
+        .flow-indicator {
+            color: #8a2be2;
+            font-size: 1.6rem;
             font-weight: bold;
+            line-height: 1;
+            margin: -5px 0;
+            animation: bounceArrow 2s infinite;
         }
-        .sub-component {
-            background: #f8fafc;
-            border: 1px dashed #cbd5e1;
-            color: #334155;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: background 0.2s ease;
-        }
-        .workflow-card:hover .sub-component {
-            background: #f1f5f9;
+        @keyframes bounceArrow {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-6px); }
+            60% { transform: translateY(-3px); }
         }
         @media (max-width: 768px) {
-            .wf-title { font-size: 2rem; }
-            .workflow-grid { gap: 40px; }
-            .workflow-card { width: 100%; max-width: 400px; }
+            .wf-title { font-size: 1.8rem; }
+            .flow-node { padding: 15px 20px; }
         }
     </style>
 
     <div class="wf-container">
-        <h2 class="wf-title">Infrastructure Workflow</h2>
-        <p class="wf-subtitle">100% Serverless, Highly Cost-Optimized & Autonomous Cloud Architecture</p>
+        <h2 class="wf-title">My Portfolio Live Request Architecture Workflow</h2>
+        <p class="wf-subtitle">Step-by-Step Serverless Ingestion & Secure Delivery Flow for ankush.fun</p>
         
-        <div class="workflow-grid">
-            <!-- Pipeline Layer -->
-            <div class="workflow-card">
-                <div class="workflow-badge">CI/CD PIPELINE</div>
-                <h3>1. Automation & Sync</h3>
-                <p>Local codebase updates trigger an immediate runtime sync webhook via encryption keys.</p>
-                <div class="sub-component">GitHub Actions Engine</div>
-                <div class="flow-arrow">▼</div>
-                <div class="sub-component">AWS IAM Credentials</div>
-                <div class="flow-arrow">▼</div>
-                <div class="sub-component">Amazon S3 Object Sync</div>
+        <div class="flow-wrapper">
+            
+            <!-- Step 1 -->
+            <div class="flow-node">
+                <span class="node-step">Step 01</span>
+                <h4 class="node-title">👤 User Client Session Ingestion</h4>
+                <p class="node-desc">User enters <strong>https://ankush.fun</strong> inside their browser. The client triggers an asynchronous DNS handshake lookup query.</p>
+            </div>
+            
+            <div class="flow-indicator">▼</div>
+            
+            <!-- Step 2 -->
+            <div class="flow-node">
+                <span class="node-step">Step 02</span>
+                <h4 class="node-title">🗺️ Authoritative DNS Resolving (AWS Route 53)</h4>
+                <p class="node-desc">Route 53 Hosted Zone intercepts the request namespace and instantly targets the Alias route leading towards the global Content Delivery Network endpoints.</p>
+            </div>
+            
+            <div class="flow-indicator">▼</div>
+            
+            <!-- Step 3 -->
+            <div class="flow-node">
+                <span class="node-step">Step 03</span>
+                <h4 class="node-title">⚡ Edge Termination & Static Delivery (AWS CloudFront & S3)</h4>
+                <p class="node-desc">CloudFront terminates the connection securely using N. Virginia ACM SSL Wildcard keys, maps the default root to <strong>index.html</strong>, and pulls clean visual static assets straight from the private <strong>Amazon S3 Bucket</strong>.</p>
+            </div>
+            
+            <div class="flow-indicator">▼</div>
+            
+            <!-- Step 4 -->
+            <div class="flow-node">
+                <span class="node-step">Step 04</span>
+                <h4 class="node-title">🚪 Form Submission API Gateway Vector</h4>
+                <p class="node-desc">When a user hits 'Submit' on the Contact Form, JS triggers a secure <code>POST</code> request. <strong>Amazon API Gateway (Mumbai)</strong> intercepts the payload and enforces permissive CORS handshakes to let the browser execute safely.</p>
+            </div>
+            
+            <div class="flow-indicator">▼</div>
+            
+            <!-- Step 5 -->
+            <div class="flow-node">
+                <span class="node-step">Step 05</span>
+                <h4 class="node-title">⚙️ Serverless Processing Logic Engine (AWS Lambda Python)</h4>
+                <p class="node-desc">An isolated Python 3.12 Lambda layer triggers on-demand for exactly 1 second, processes the structural raw body text payload, running data validation layers to isolate spam or empty fields.</p>
+            </div>
+            
+            <div class="flow-indicator">▼</div>
+            
+            <!-- Step 6 -->
+            <div class="flow-node" style="border-color: #a855f7; background: #faf5ff;">
+                <span class="node-step" style="background: #a855f7;">Final Delivery</span>
+                <h4 class="node-title">📩 Downstream Secure Mail Relay (Amazon SES)</h4>
+                <p class="node-desc">Lambda calls the verified <strong>Amazon SES Identity Sandbox</strong> via explicit IAM roles. The pipeline structures a secure delivery tunnel and shoots the parsed message straight into the admin's verified target inbox mailbox matrix.</p>
             </div>
 
-            <!-- CDN & Security Layer -->
-            <div class="workflow-card">
-                <div class="workflow-badge">EDGE SECURITY</div>
-                <h3>2. Secure Content Route</h3>
-                <p>Global client domain queries resolve securely through cached edge optimization routes.</p>
-                <div class="sub-component">AWS Route 53 DNS</div>
-                <div class="flow-arrow">▼</div>
-                <div class="sub-component">AWS ACM SSL Wildcards</div>
-                <div class="flow-arrow">▼</div>
-                <div class="sub-component">AWS CloudFront Distribution</div>
-            </div>
-
-            <!-- Backend Layer -->
-            <div class="workflow-card">
-                <div class="workflow-badge">SERVERLESS LOGIC</div>
-                <h3>3. Async Ingestion</h3>
-                <p>Asynchronous data form interactions bypass CORS blocks natively on an on-demand runtime.</p>
-                <div class="sub-component">Amazon API Gateway</div>
-                <div class="flow-arrow">▼</div>
-                <div class="sub-component">AWS Lambda (Python Engine)</div>
-                <div class="flow-arrow">▼</div>
-                <div class="sub-component">Amazon SES Email Relay</div>
-            </div>
         </div>
     </div>
 </section>
-<!-- END OF INFRASTRUCTURE WORKFLOW SECTION -->
+<!-- END OF LIVE PORTFOLIO DYNAMIC WORKFLOW SECTION -->
+
 
 
 		<!--experience start -->
