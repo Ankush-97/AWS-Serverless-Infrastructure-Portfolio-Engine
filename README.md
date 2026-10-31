@@ -4,9 +4,6 @@ A high-performance, enterprise-grade personal portfolio platform engineered on a
 
 ---
 
-## 🏗️ Architectural Infrastructure Workflow Design
-
-This architecture diagram illustrates the end-to-end data pipeline traffic routing matrix across the application platform, handling standard user sessions and asynchronous contact ingest vectors securely:
 
 ## 🏗️ Project Architecture & Connection Diagram
 
