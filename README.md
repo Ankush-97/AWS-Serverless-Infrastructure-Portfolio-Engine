@@ -8,41 +8,58 @@ A high-performance, enterprise-grade personal portfolio platform engineered on a
 
 This architecture diagram illustrates the end-to-end data pipeline traffic routing matrix across the application platform, handling standard user sessions and asynchronous contact ingest vectors securely:
 
-```text
-[ USER BROWSER CLIENT ]
-          │
-    (DNS Lookup for ankush.fun)
-          ▼
-   [ AWS Route 53 ] 
-    (Authoritative Nameservers)
-          │
-    (Points to CloudFront Distribution)
-          ▼
-[ AWS CloudFront Edge Network ] (HTTPS / SSL/TLS Termination)
-          │
-          ├─► [ AWS S3 Bucket ] (Static Web Layer: HTML, CSS, JS)
-          │
-    (User Form Submit Request)
-          ▼
-[ Amazon API Gateway HTTP API ] (CORS Handshake Protected Layer)
-          │
-     (Method Route: POST /contact)
-          ▼
-[ AWS Lambda Endpoint ] 
-  - Runtime: Python 3.x
-  - Single Execution Constraint
-  - Fault-Tolerant Retry Guard = 0 (Asynchronous Loop Protection)
-          │
-     (Filtered Payload)
-          ▼
-[ Amazon SES Component ] 
-  - Region: ap-south-1 (Mumbai)
-  - Sender Identity Verification Enforced
-          │
-     (Secure Transport Layer Email Delivery)
-          ▼
-[ VERIFIED TARGET ADMIN INBOX 📬 ]
+## 🏗️ Project Architecture & Connection Diagram
+
+```mermaid
+graph TD
+    %% Styling
+    classDef aws style fill:#FF9900,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef github style fill:#24292e,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef client style fill:#1f77b4,stroke:#fff,stroke-width:2px,color:#fff;
+
+    %% Client Layer
+    User[👤 User Browser Client]:::client
+    User -->|1. Opens https://ankush.fun| Route53
+
+    %% DNS & CDN Layer
+    subgraph AWS Global Edge Infrastructure
+        Route53[🗺️ AWS Route 53 <br> DNS Namespace Controller]:::aws
+        CloudFront[⚡ AWS CloudFront CDN <br> SSL/HTTPS Termination]:::aws
+        ACM[🔑 AWS Certificate Manager <br> Free SSL Certificate]:::aws
+        
+        Route53 -->|Points Domain Alias to| CloudFront
+        ACM -->|Provides HTTPS Lock to| CloudFront
+    end
+    CloudFront -->|2. Pulls Static Assets| S3
+
+    %% Storage & Deployment Layer
+    subgraph Frontend Hosting & Automation
+        S3[📦 AWS S3 Bucket <br> ankush.fun Static Host]:::aws
+        GitHub[🐙 GitHub Repository <br> Source Code]:::github
+        Actions[⚙️ GitHub Actions <br> CI/CD Runner Pipeline]:::github
+        
+        GitHub -->|Trigger: git push| Actions
+        Actions -->|3. Auto Syncs Code via IAM| S3
+    end
+
+    %% Backend Form Ingestion Layer
+    User -->|4. Submits Contact Form via JS POST| APIGateway
+
+    subgraph Serverless Backend Processing
+        APIGateway[🚪 Amazon API Gateway <br> HTTP API Route: /contact]:::aws
+        Lambda[⚡ AWS Lambda Function <br> Python 3.x Logic Engine]:::aws
+        SES[📬 Amazon SES <br> Simple Email Service]:::aws
+        
+        APIGateway -->|Enforces CORS & Passes Payload| Lambda
+        Lambda -->|Sanitizes Data & Triggers| SES
+    end
+
+    %% Final Target
+    AdminEmail[📩 Verified Target Inbox <br> pandeyankush8959@gmail.com]:::client
+    SES -->|5. Delivers Form Data Mail| AdminEmail
+
 ```
+
 
 ---
 
