@@ -416,116 +416,157 @@ window.addEventListener('DOMContentLoaded', () => {
 							
 		<!--education end -->
 
-		<!--skills start -->
-		<section id="skills" class="skills">
-				<div class="skill-content">
-					<div class="section-heading text-center">
-						<h2>skills</h2>
-					</div>
-					<div class="container">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="single-skill-content">
-									<div class="barWrapper">
-										<span class="progressText">AWS (Amazon Web Service )</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-												<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="">
-													  
-												</div>
-											</div>
-											<h3>100%</h3>	
-										</div>
-									</div><!-- /.barWrapper -->
-									<div class="barWrapper">
-										<span class="progressText">LINUX</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-											   <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="">
-												    
-											   </div>
-											</div>
-											<h3>100%</h3>	
-										</div>
-									</div><!-- /.barWrapper -->
-									<div class="barWrapper">
-										<span class="progressText">DOCKER</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-											   <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="">
-												   
-											   </div>
-											</div>
-											<h3>100%</h3>	
-										</div>
-									</div><!-- /.barWrapper -->
-									<div class="barWrapper">
-										<span class="progressText">KUBERNETES</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-											   <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="">
-												    
-											   </div>
-											</div>
-											<h3>100%</h3>	
-										</div>
-									</div><!-- /.barWrapper -->
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="single-skill-content">
-									<div class="barWrapper">
-										<span class="progressText">TERRAFORM(Iac)</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-												<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="">
-													
-												</div>
-											</div>
-											<h3>100%</h3>	
-										</div>
-									</div><!-- /.barWrapper -->
-									<div class="barWrapper">
-										<span class="progressText">Jenkins(CI/CD)</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-											   <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="">
-												    
-											   </div>
-											</div>
-											<h3>100%</h3>	
-										</div>
-									</div><!-- /.barWrapper -->
-									<div class="barWrapper">
-										<span class="progressText">DATADOG</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-											   <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="">
-												   
-											   </div>
-											</div>
-											<h3>100%</h3>	
-										</div>
-									</div><!-- /.barWrapper -->
-									<div class="barWrapper">
-										<span class="progressText"> GIT/GITHUB</span>
-										<div class="single-progress-txt">
-											<div class="progress ">
-											   <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="">
-												    
-											   </div>
-											</div>
-											<h3>100%</h3>	
-										</div>
-									</div><!-- /.barWrapper -->
-								</div>
-							</div>
-						</div><!-- /.row -->
-					</div>	<!-- /.container -->		
-				</div><!-- /.skill-content-->
+		<!-- START OF INFRASTRUCTURE WORKFLOW SECTION -->
+<section id="workflow-section" class="workflow-section">
+    <style>
+        .workflow-section {
+            padding: 80px 0;
+            text-align: center;
+            background: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        .wf-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .wf-title {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .wf-subtitle {
+            font-size: 1.1rem;
+            color: #666666;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+        .workflow-grid {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+        .workflow-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 35px 25px;
+            width: 340px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            position: relative;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        .workflow-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.1);
+            border-color: #8a2be2;
+        }
+        .workflow-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #8a2be2; /* High-tech Purple Accent */
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(138, 43, 226, 0.2);
+            white-space: nowrap;
+        }
+        .workflow-card h3 {
+            font-size: 1.4rem;
+            margin: 15px 0 12px 0;
+            color: #111111;
+            font-weight: 700;
+        }
+        .workflow-card p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            height: 45px; /* Ensures alignments are perfectly synced */
+        }
+        .flow-arrow {
+            color: #a855f7;
+            font-size: 1.4rem;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .sub-component {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            color: #334155;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: background 0.2s ease;
+        }
+        .workflow-card:hover .sub-component {
+            background: #f1f5f9;
+        }
+        @media (max-width: 768px) {
+            .wf-title { font-size: 2rem; }
+            .workflow-grid { gap: 40px; }
+            .workflow-card { width: 100%; max-width: 400px; }
+        }
+    </style>
 
-		</section><!--/.skills-->
-		<!--skills end -->
+    <div class="wf-container">
+        <h2 class="wf-title">Infrastructure Workflow</h2>
+        <p class="wf-subtitle">100% Serverless, Highly Cost-Optimized & Autonomous Cloud Architecture</p>
+        
+        <div class="workflow-grid">
+            <!-- Pipeline Layer -->
+            <div class="workflow-card">
+                <div class="workflow-badge">CI/CD PIPELINE</div>
+                <h3>1. Automation & Sync</h3>
+                <p>Local codebase updates trigger an immediate runtime sync webhook via encryption keys.</p>
+                <div class="sub-component">GitHub Actions Engine</div>
+                <div class="flow-arrow">▼</div>
+                <div class="sub-component">AWS IAM Credentials</div>
+                <div class="flow-arrow">▼</div>
+                <div class="sub-component">Amazon S3 Object Sync</div>
+            </div>
+
+            <!-- CDN & Security Layer -->
+            <div class="workflow-card">
+                <div class="workflow-badge">EDGE SECURITY</div>
+                <h3>2. Secure Content Route</h3>
+                <p>Global client domain queries resolve securely through cached edge optimization routes.</p>
+                <div class="sub-component">AWS Route 53 DNS</div>
+                <div class="flow-arrow">▼</div>
+                <div class="sub-component">AWS ACM SSL Wildcards</div>
+                <div class="flow-arrow">▼</div>
+                <div class="sub-component">AWS CloudFront Distribution</div>
+            </div>
+
+            <!-- Backend Layer -->
+            <div class="workflow-card">
+                <div class="workflow-badge">SERVERLESS LOGIC</div>
+                <h3>3. Async Ingestion</h3>
+                <p>Asynchronous data form interactions bypass CORS blocks natively on an on-demand runtime.</p>
+                <div class="sub-component">Amazon API Gateway</div>
+                <div class="flow-arrow">▼</div>
+                <div class="sub-component">AWS Lambda (Python Engine)</div>
+                <div class="flow-arrow">▼</div>
+                <div class="sub-component">Amazon SES Email Relay</div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END OF INFRASTRUCTURE WORKFLOW SECTION -->
+
 
 		<!--experience start -->
 		<section id="experience" class="experience">
@@ -817,7 +858,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         <div class="devops-project-card">
                             <div class="project-header">
                                 <span class="project-badge glow-purple-badge">Microservices</span>
-                               <a href="https://github.com" target="_blank" class="github-btn">View Code 🐙</a>
+                               <a href="https://github.com/Ankush-97/Project-3-E-Commerce-Application-Shopitry.git" target="_blank" class="github-btn">View Code 🐙</a>
 			    </div>
                             <h3 class="project-title">ShopiTry Platform</h3>
                             <p class="project-subtitle">Engineered a decoupled 6-service ecosystem reducing backend API latency by 35% using Node.js and MongoDB.</p>
@@ -837,7 +878,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         <div class="devops-project-card">
                             <div class="project-header">
                                 <span class="project-badge glow-purple-badge">Orchestration</span>
-                               <a href="https://github.com" target="_blank" class="github-btn">View Code 🐙</a>
+                               <a href="https://github.com/Ankush-97/Docker-3-Tier-Microservices.git" target="_blank" class="github-btn">View Code 🐙</a>
                             </div>
                             <h3 class="project-title">3-Tier Microservices</h3>
                             <p class="project-subtitle">Designed and deployed a containerized 3-tier microservices application on AWS EC2, ensuring 99.9% consistency.</p>
@@ -857,7 +898,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         <div class="devops-project-card">
                             <div class="project-header">
                                 <span class="project-badge glow-purple-badge">IaC / Automation</span>
-                                  <a href="https://github.com" target="_blank" class="github-btn">View Code 🐙</a>
+                                  <a href="https://github.com/Ankush-97/Production-Grade-High-Availability-AWS-Architecture-via-Terraform.git" target="_blank" class="github-btn">View Code 🐙</a>
 			    </div>
                             <h3 class="project-title">Production-Grade AWS</h3>
                             <p class="project-subtitle">Automated a highly available cloud architecture on AWS using Terraform modules, reducing setup times by 50%.</p>
